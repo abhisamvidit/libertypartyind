@@ -135,7 +135,7 @@
     height: 100vh;
     position: relative;
     background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.8)),
-                url('https://source.unsplash.com/random/1920x1080?freedom') center/cover;
+                url('/freedom') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
