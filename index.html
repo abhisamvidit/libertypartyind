@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Libertarian Party of India - Championing Free Markets, Individual Liberty, and Indic Civilizational Values">
+    <title>Libertarian Party of India | Pro Market · Pro Freedom · Pro Merit</title>
+    
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- This is the most difficult xd -->
+<style>
+    /* Updated Mobile Menu Styles */
+    @media (max-width: 768px) {
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            flex-direction: column;
+            gap: 0;
+            padding: 0 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+    
+        .nav-links.active {
+            max-height: 400px;
+            opacity: 1;
+            padding: 2rem;
+        }
+    
+        .nav-link {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+    
+        .mobile-menu-button {
+            display: block;
+            transition: all 0.3s ease;
+        }
+    
+        .mobile-menu-button.active {
+            transform: rotate(90deg);
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="/" class="brand-logo">
+                <span class="logo-text">LPI</span>
+                <span class="logo-slogan">#FreeOrDie</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#join" class="nav-link cta-button">Join Us</a>
+                <a href="#donate" class="nav-link cta-button donate">Donate</a>
+            </div>
+
+            <button class="mobile-menu-button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Reclaiming India's Libertarian Future</h1>
+                <p class="hero-slogan">Pro Market · Pro Merit · Pro Freedom</p>
+                <button class="hero-cta">Join the Movement</button>
+            </div>
+        </section>
+
+        <!-- Member Count Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="1769">0</div>
+                    <div class="stat-label">Freedom Fighters Joined</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Principles Section -->
+        <section class="principles-section">
+            <div class="section-header">
+                <h2>Our Core Principles</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="principles-grid">
+                <div class="principle-card pro">
+                    <h3>Pro Meritocracy</h3>
+                    <p>Advancing systems based on ability and achievement</p>
+                </div>
+                <div class="principle-card pro">
+                    <h3>Pro Free Markets</h3>
+                    <p>Championing economic freedom and entrepreneurship</p>
+                </div>
+                <div class="principle-card pro">
+                    <h3>Pro Civilizational Values</h3>
+                    <p>Preserving India's rich cultural heritage</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>New India Needs True Freedom</h2>
+                    <div class="section-divider"></div>
+                    <p class="lead-text">We stand against:</p>
+                    <ul class="stance-list">
+                        <li>Bureaucratic Overreach</li>
+                        <li>Discriminatory Reservations</li>
+                        <li>Government Overreach</li>
+                    </ul>
+                </div>
+                <div class="about-media">
+                    <img src="india1.jpg" 
+                         alt="Freedom protest" 
+                         class="about-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars Section -->
+        <section class="pillars-section">
+            <div class="pillars-container">
+                <article class="pillar-card">
+                    <h3>Four Pillars of Liberty</h3>
+                    <ul class="pillar-list">
+                        <li>Economic Freedom</li>
+                        <li>Individual Sovereignty</li>
+                        <li>Limited Government</li>
+                        <li>Cultural Preservation</li>
+                    </ul>
+                </article>
+
+                <article class="pillar-card">
+                    <h3>Three Rejections</h3>
+                    <ul class="pillar-list">
+                        <li>Anti-Cronyism</li>
+                        <li>Anti-Compulsion</li>
+                        <li>Anti-Nanny State</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Media Gallery -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1632261811725-4697edf73a48?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                     alt="Freedom rally" 
+                     class="gallery-item">
+                <img src="stockmarket.jpg" 
+                     alt="Free market" 
+                     class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=500&h=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                     alt="Indian culture" 
+                     class="gallery-item">
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="join" class="cta-section">
+            <div class="cta-container">
+                <h2>Join the Freedom Revolution</h2>
+                <form class="membership-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Become a Member</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <address>
+                    Libertarian Party of India<br>
+                    New Delhi, India<br>
+                    <a href="mailto:contact@libertarianparty.in/">contact@libertarianparty.in</a>
+                </address>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <nav class="footer-nav">
+                    <a href="#manifesto">Manifesto</a>
+                    <a href="#leadership">Leadership</a>
+                    <a href="#press">Press</a>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <!-- X/Twitter -->
+                    <a href="#x-twitter" aria-label="X (Twitter)">
+                      <div class="social-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="social-icon">
+                          <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/>
+                        </svg>
+                      </div>
+                    </a>
+                  
+                    <!-- Facebook -->
+                    <a href="#facebook" aria-label="Facebook">
+                      <div class="social-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="social-icon">
+                          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                        </svg>
+                      </div>
+                    </a>
+                  
+                    <!-- Instagram -->
+                    <a href="#instagram" aria-label="Instagram">
+                      <div class="social-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="social-icon">
+                          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Libertarian Party of India - #FreeOrDie</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
