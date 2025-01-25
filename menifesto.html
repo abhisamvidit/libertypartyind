@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libertarian Manifesto - स्वतंत्रता या मृत्यु</title>
+    <style>
+        /* ===== Core Variables ===== */
+        :root {
+            --primary: #0a1931;
+            --accent: #d32f2f;
+            --gold: #ffd700;
+            --text: #f8f9fa;
+            --text-dark: #212121;
+            --glass: rgba(255, 255, 255, 0.08);
+            --section-space: 15rem;
+            --gradient-1: linear-gradient(135deg, #0a1931 0%, #1a0a31 100%);
+            --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 62.5%;
+        }
+
+        /* ===== Base Reset ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--gradient-1);
+            font-size: 1.8rem;
+            counter-reset: section-counter;
+            overflow-x: hidden;
+        }
+
+        /* ===== Corrected Navigation Styles ===== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-slogan {
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--text) !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(10, 25, 49, 0.2);
+        }
+        .cta-button:hover::after {
+            content: none;
+        }
+
+
+        .donate {
+            background: var(--accent);
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: var(--transition);
+                backdrop-filter: blur(15px);
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+                padding: 1rem 0;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 1.2rem;
+                color: var(--text-dark);
+            }
+
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .cta-button {
+                margin: 1rem auto;
+            }
+        }
+
+        /* ===== Hero Section ===== */
+        .manifesto-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, rgba(10,25,49,0.9), rgba(26,10,49,0.7)),
+                        url('https://images.pexels.com/photos/672630/pexels-photo-672630.jpeg') center/cover fixed;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1400px;
+            padding: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s var(--cubic-bezier);
+        }
+
+        .hero-title {
+            font-size: 7rem;
+            margin-bottom: 14rem;
+            font-weight: 900;
+            line-height: 2;
+            text-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            background: linear-gradient(to right, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== Manifesto Sections ===== */
+        .manifesto-section {
+            margin: var(--section-space) 0;
+            padding: 10rem;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border-radius: 40px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.15);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s var(--cubic-bezier);
+            position: relative;
+            counter-increment: section-counter;
+        }
+
+        .manifesto-section::before {
+            content: counter(section-counter, decimal-leading-zero);
+            position: absolute;
+            top: -5rem;
+            left: -5rem;
+            font-size: 15rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .section-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(211,47,47,0.1);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent);
+            transition: all 0.4s var(--cubic-bezier);
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .section-image {
+            border-radius: 30px;
+            overflow: hidden;
+            height: 600px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            transition: transform 0.4s var(--cubic-bezier);
+        }
+
+        .section-image:hover {
+            transform: scale(1.02);
+        }
+
+        .section-text {
+            font-size: 1.9rem;
+            line-height: 1.9;
+        }
+
+        .section-text ul {
+            list-style: none;
+            margin: 4rem 0;
+        }
+
+        .section-text li {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .section-text li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== Policy Sections ===== */
+        #markets .section-image {
+            background: url('https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+        }
+
+        #religion .section-icon {
+            background: rgba(255,215,0,0.1);
+            color: var(--gold);
+        }
+
+        #religion .section-image {
+            background: url('https://images.pexels.com/photos/1583244/pexels-photo-1583244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+        }
+
+        #property .section-image {
+            background: url('https://images.unsplash.com/photo-1584433144859-1fc3ab64a957') center/cover;
+        }
+
+        #taxation {
+            background: linear-gradient(45deg, rgba(10,25,49,0.8), rgba(42,10,49,0.6));
+        }
+
+        #speech .section-image {
+            background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf') center/cover;
+        }
+
+        #charity .section-icon {
+            background: rgba(76,175,80,0.1);
+            color: #4CAF50;
+        }
+
+        #decentralization .section-content {
+            background: #232641;
+        }
+
+        #merit {
+            background: linear-gradient(45deg, rgba(10,25,49,0.8), rgba(26,10,49,0.6));
+        }
+
+        #technology .section-image {
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover;
+        }
+
+        #trade .section-icon {
+            background: rgba(33,150,243,0.1);
+            color: #2196F3;
+        }
+
+        #defense .section-image {
+            background: url('https://images.unsplash.com/photo-1584433144859-1fc3ab64a957') center/cover;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1600px) {
+            .manifesto-section {
+                padding: 8rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 6rem;
+            }
+
+            .section-image {
+                height: 500px;
+                order: -1;
+            }
+
+            .hero-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 3rem;
+            }
+
+            .manifesto-section {
+                padding: 6rem 3rem;
+                margin: 8rem 0;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3rem;
+            }
+
+            .section-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 3.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .manifesto-section {
+                padding: 4rem 2rem;
+            }
+
+            .section-image {
+                height: 300px;
+            }
+        }
+
+        /* ===== Footer Styles ===== */
+        .main-footer {
+            background: rgba(10, 25, 49, 0.95);
+            backdrop-filter: blur(10px);
+            color: #e0e0e0;
+            padding: 8rem 0 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            padding-bottom: 6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-column {
+            padding: 2rem;
+        }
+
+        .footer-heading {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            transform: rotate(15deg);
+        }
+
+        .footer-logo-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .footer-about {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-link {
+            color: inherit;
+            text-decoration: none;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .footer-link::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .footer-link:hover::before {
+            transform: translateX(-5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        .footer-cta {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.4rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .footer-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(211,47,47,0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            text-decoration: none;
+        }
+
+        .social-link {
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .newsletter {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 20pc;
+        }
+
+        .newsletter h4 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .newsletter-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            font-size: 1.4rem;
+        }
+
+        .footer-legal a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+
+        .footer-slogan {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .india-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Corrected Navigation -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="/" class="brand-logo">
+                <span class="logo-text">LPI</span>
+                <span class="logo-slogan">#FreeOrDie</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#join" class="nav-link cta-button">Join Us</a>
+                <a href="#donate" class="nav-link cta-button donate">Donate</a>
+            </div>
+
+            <button class="mobile-menu-button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="manifesto-hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">स्वतंत्रता या मृत्यु</h1>
+            <p class="hero-subtitle">A New Dawn for India's Liberty</p>
+        </div>
+    </section>
+
+    <!-- Manifesto Content -->
+    <main class="manifesto-container">
+        <!-- Free Markets Section -->
+        <section class="manifesto-section" id="markets">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Economic Liberation</h2>
+                    <p class="section-subtitle">Unshackling India's Entrepreneurial Spirit</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image"></div>
+                <div class="section-text">
+                    <ul>
+                        <li>Abolish all licensing requirements for businesses</li>
+                        <li>Phase out corporate tax over 5 years</li>
+                        <li>Legalize cryptocurrency as legal tender</li>
+                        <li>Remove all FDI restrictions</li>
+                        <li>Establish free trade zones in all states</li>
+                        <li>Privatize non-essential government enterprises</li>
+                        <li>Implement blockchain-based land registry</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Religious Freedom Section -->
+        <section class="manifesto-section" id="religion">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Spiritual Autonomy</h2>
+                    <p class="section-subtitle">True Secularism Through Freedom of Conscience</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image"></div>
+                <div class="section-text">
+                    <ul>
+                        <li>Complete separation of temple and state</li>
+                        <li>Repeal all religious subsidy programs</li>
+                        <li>Autonomy for all places of worship</li>
+                        <li>Equal protection under law for all faiths</li>
+                        <li>Ban on religion-based reservations</li>
+                        <li>Freedom from forced conversions</li>
+                        <li>Decriminalize interfaith marriages</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property Rights Section -->
+        <section class="manifesto-section" id="property">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Property Sovereignty</h2>
+                    <p class="section-subtitle">Sacred Protection of Personal Domain</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image"></div>
+                <div class="section-text">
+                    <ul>
+                        <li>Constitutional right to property</li>
+                        <li>Ban eminent domain abuse</li>
+                        <li>Digital asset protection laws</li>
+                        <li>Streamlined property registration</li>
+                        <li>Inheritance law modernization</li>
+                        <li>Tenant rights framework</li>
+                        <li>IP fast-track courts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voluntary Charity Section -->
+        <section class="manifesto-section" id="charity">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Voluntary Philanthropy</h2>
+                    <p class="section-subtitle">Community-Driven Social Support</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=600&fit=crop" alt="Community Help">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Abolish mandatory CSR requirements</li>
+                        <li>Tax exemptions for charitable contributions</li>
+                        <li>Decentralized donation matching platforms</li>
+                        <li>Community impact bonds system</li>
+                        <li>Volunteer time banking initiative</li>
+                        <li>Transparent charity rating system</li>
+                        <li>Micro-donation infrastructure</li>
+                    </ul>
+                    <p>Replacing coercive taxation with voluntary cooperation through decentralized, community-led support systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decentralization Section -->
+        <section class="manifesto-section" id="decentralization">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Local Governance</h2>
+                    <p class="section-subtitle">Power to the Panchayats</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.unsplash.com/photo-1583608563020-9772ff491a8c?w=500&h=600&fit=crop&q=80&auto=format&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Decentralization">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>95% devolution of central powers</li>
+                        <li>Local tax autonomy for districts</li>
+                        <li>Blockchain-based voting systems</li>
+                        <li>Community policing frameworks</li>
+                        <li>School curriculum localization</li>
+                        <li>Regional infrastructure bonds</li>
+                        <li>Direct democracy initiatives</li>
+                    </ul>
+                    <p>Empowering local communities to make decisions about their resources, culture, and development priorities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Merit Section -->
+        <section class="manifesto-section" id="merit">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Meritocracy</h2>
+                    <p class="section-subtitle">Equality of Opportunity</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/7267585/pexels-photo-7267585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Merit System">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Blind recruitment processes</li>
+                        <li>Skill-based education reform</li>
+                        <li>Entrepreneurship merit grants</li>
+                        <li>Anti-nepotism legislation</li>
+                        <li>Universal competency testing</li>
+                        <li>Performance-based promotions</li>
+                        <li>Open source credentialing</li>
+                    </ul>
+                    <p>Creating pathways for excellence through transparent evaluation systems and equal access to opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="manifesto-section" id="technology">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Technological Sovereignty</h2>
+                    <p class="section-subtitle">Building India 2.0</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/1054397/pexels-photo-1054397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Technology">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Unrestricted crypto regulations</li>
+                        <li>3D printing deregulation</li>
+                        <li>Drone delivery frameworks</li>
+                        <li>AI development sandboxes</li>
+                        <li>Open source government code</li>
+                        <li>Quantum computing initiatives</li>
+                        <li>Space commercialization policy</li>
+                    </ul>
+                    <p>Positioning India as the global tech leader through permissionless innovation and startup-friendly policies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Trade Section -->
+        <section class="manifesto-section" id="trade">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Global Exchange</h2>
+                    <p class="section-subtitle">Vasudhaiva Kutumbakam in Action</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/4386469/pexels-photo-4386469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Global Trade">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Unilateral free trade agreements</li>
+                        <li>Duty-free special zones</li>
+                        <li>Global talent visa programs</li>
+                        <li>Maritime corridor development</li>
+                        <li>Cryptocurrency trade hubs</li>
+                        <li>Agricultural export liberalization</li>
+                        <li>Cultural exchange initiatives</li>
+                    </ul>
+                    <p>Transforming India into the world's marketplace through borderless exchange of goods, services, and ideas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Self-Defense Section -->
+        <section class="manifesto-section" id="defense">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Personal Security</h2>
+                    <p class="section-subtitle">Right to Protect</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/1135452/pexels-photo-1135452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Self Defense">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Constitutional carry rights</li>
+                        <li>Non-lethal weapon access</li>
+                        <li>Cyber defense training</li>
+                        <li>Neighborhood watch programs</li>
+                        <li>Private security recognition</li>
+                        <li>Citizen arrest protections</li>
+                        <li>Self-defense insurance</li>
+                    </ul>
+                    <p>Empowering citizens with legal protections and tools for personal and community safety.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="manifesto-section" id="education">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Education Freedom</h2>
+                    <p class="section-subtitle">Learning Without Boundaries</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/4861373/pexels-photo-4861373.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Education">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>School choice vouchers</li>
+                        <li>Decentralized accreditation</li>
+                        <li>Micro-school networks</li>
+                        <li>Skill-based certifications</li>
+                        <li>Teacher entrepreneurship</li>
+                        <li>Open curriculum frameworks</li>
+                        <li>Lifelong learning accounts</li>
+                    </ul>
+                    <p>Transforming education through competition, innovation, and learner autonomy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Healthcare Section -->
+        <section class="manifesto-section" id="healthcare">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <div>
+                    <h2 class="section-title">Medical Autonomy</h2>
+                    <p class="section-subtitle">Patient-Centered Care</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Healthcare">
+                </div>
+                <div class="section-text">
+                    <ul>
+                        <li>Direct primary care models</li>
+                        <li>Cross-border health insurance</li>
+                        <li>Telemedicine deregulation</li>
+                        <li>Medical innovation zones</li>
+                        <li>Health savings accounts</li>
+                        <li>Patient bill of rights</li>
+                        <li>Drug approval modernization</li>
+                    </ul>
+                    <p>Creating a competitive healthcare marketplace focused on patient outcomes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- About Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">About LPI</h3>
+                    <div class="footer-logo">
+                        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?w=100&h=100&fit=crop" 
+                             alt="LPI Logo" 
+                             class="footer-logo-img">
+                        <span class="footer-logo-text">Libertarian Party<br>of India</span>
+                    </div>
+                    <p class="footer-about">
+                        Championing individual liberty, free markets, and limited government. 
+                        Join the movement to build a truly free India.
+                    </p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <nav class="footer-nav">
+                        <a href="/menifesto.html" class="footer-link">Manifesto</a>
+                        <a href="#leadership" class="footer-link">Leadership</a>
+                        <a href="#events" class="footer-link">Events</a>
+                        <a href="#press" class="footer-link">Press Releases</a>
+                        <a href="#contact" class="footer-link">Contact Us</a>
+                    </nav>
+                </div>
+    
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                        <p><i class="fas fa-envelope"></i> contact@libertyparty.in</p>
+                        <p><i class="fas fa-phone"></i> +91 98xxx 43xx</p>
+                    </div>
+                    <button class="footer-cta">
+                        Join the Movement
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+    
+                <!-- Social Media -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <h4>Stay Informed</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <span>&copy; 2025 Libertarian Party of India</span>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Use</a>
+                    <a href="#disclaimer">Disclaimer</a>
+                </div>
+                <div class="footer-slogan">
+                    <span>#FreeOrDie</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" 
+                         alt="Indian Flag" 
+                         class="india-flag">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (!menuButton || !navLinks) return;
+
+            const toggleMenu = () => {
+                navLinks.classList.toggle('active');
+                menuButton.classList.toggle('active');
+            };
+
+            menuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuButton.classList.remove('active');
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                    menuButton.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize mobile menu
+        document.addEventListener('DOMContentLoaded', initMobileMenu);
+
+        // Intersection Observer for Sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('.manifesto-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navigation Activation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.manifesto-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if(rect.top <= 150 && rect.bottom >= 150) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if(link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hero Animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = 1;
+            heroContent.style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
