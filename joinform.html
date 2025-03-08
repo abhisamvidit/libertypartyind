@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Liberation Party Of India</title>
+    <link rel="stylesheet" href="join.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <header class="form-header">
+            <img src="/assets/logo.png" alt="Liberation Party Logo" 
+            style="width: 150px; height: auto; display: inline-block; vertical-align: middle; border-radius: 8px;">
+                   <h2>Join Our Movement</h2>
+            <p class="subtitle">Together we can build a better India</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">
+                    <i class="fas fa-user"></i>
+                    <span>Personal</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Contact</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Interests</span>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Confirm</span>
+                </div>
+            </div>
+        </div>
+        
+        <form id="joinForm">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step" id="step1">
+                <h3 class="step-title">Personal Information</h3>
+                <p class="step-description">Tell us a bit about yourself</p>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your first and last name" required>
+                    </div>
+                    <small class="error-message" id="fullNameError" style="visibility: hidden;"></small>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age Group</label>
+                        <select id="age" name="age">
+                            <option value="">Select age group</option>
+                            <option value="18-24">18-24</option>
+                            <option value="25-34">25-34</option>
+                            <option value="35-44">35-44</option>
+                            <option value="45-54">45-54</option>
+                            <option value="55-64">55-64</option>
+                            <option value="65+">65 and above</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-briefcase icon"></i>
+                        <input type="text" id="occupation" name="occupation" placeholder="What do you do for a living?">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="next-btn" data-next="2">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Contact Information -->
+            <div class="form-step hidden" id="step2">
+                <h3 class="step-title">Contact Information</h3>
+                <p class="step-description">How can we reach you?</p>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <small class="error-message" id="emailError"></small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-phone icon"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <small class="error-message" id="phoneError"></small>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State/UT <span class="required">*</span></label>
+                        <select id="state" name="state" required>
+                            <option value="">Select your state</option>
+                            <option value="AN">Andaman and Nicobar Islands</option>
+                            <option value="AP">Andhra Pradesh</option>
+                            <option value="AR">Delhi</option>
+                            <option value="AS">Assam</option>
+                            <option value="BR">Bihar</option>
+                            <option value="CH">Chandigarh</option>
+                            <option value="WB">West Bengal</option>
+                        </select>
+                        <small class="helper-text">We currently serve in these states only</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <select id="district" name="district">
+                            <option value="">Select district</option>
+                            <!-- Districts will be populated via JavaScript based on state selection -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Full Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your street address, city, and PIN code"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="back-btn" data-back="1"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="button" class="next-btn" data-next="3">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Interests and Contribution -->
+            <div class="form-step hidden" id="step3">
+                <h3 class="step-title">Your Interests</h3>
+                <p class="step-description">Let us know how you'd like to be involved</p>
+                
+                <div class="form-group">
+                    <label>How would you like to contribute? <span class="required">*</span></label>
+                    <div class="contribution-options">
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="volunteering">
+                            <div class="card-content">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Volunteering</span>
+                                <small>Help with events and community outreach</small>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="donations">
+                            <div class="card-content">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Donations</span>
+                                <small>Support our campaigns financially</small>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="events">
+                            <div class="card-content">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Events</span>
+                                <small>Attend rallies and community gatherings</small>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="newsletter">
+                            <div class="card-content">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Newsletter</span>
+                                <small>Stay updated with our latest news</small>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="social-media">
+                            <div class="card-content">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Social Media</span>
+                                <small>Help spread awareness online</small>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="interests" value="policy">
+                            <div class="card-content">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Policy Development</span>
+                                <small>Contribute to our manifesto and policies</small>
+                            </div>
+                        </label>
+                    </div>
+                    <small class="error-message" id="interestsError"></small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Which issues are most important to you?</label>
+                    <div class="tags-container">
+                        <div class="tag-item">
+                            <input type="checkbox" id="education" name="issues" value="education">
+                            <label for="education">Education</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="healthcare" name="issues" value="healthcare">
+                            <label for="healthcare">Healthcare</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="employment" name="issues" value="employment">
+                            <label for="employment">Employment</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="agriculture" name="issues" value="agriculture">
+                            <label for="agriculture">Agriculture</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="environment" name="issues" value="environment">
+                            <label for="environment">Environment</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="women" name="issues" value="women">
+                            <label for="women">Women's Rights</label>
+                        </div>
+                        <div class="tag-item">
+                            <input type="checkbox" id="infrastructure" name="issues" value="infrastructure">
+                            <label for="infrastructure">Infrastructure</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="howHeard">How did you hear about us?</label>
+                    <select id="howHeard" name="howHeard">
+                        <option value="">Select an option</option>
+                        <option value="search">Search Engine</option>
+                        <option value="social">Social Media</option>
+                        <option value="friend">Friend/Family</option>
+                        <option value="advertisement">Advertisement</option>
+                        <option value="rally">Political Rally</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="back-btn" data-back="2"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="button" class="next-btn" data-next="4">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Confirmation -->
+            <div class="form-step hidden" id="step4">
+                <h3 class="step-title">Confirm Your Application</h3>
+                <p class="step-description">Review your information before submitting</p>
+                
+                <div class="summary-container" id="formSummary">
+                    <!-- Summary will be filled via JavaScript -->
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">Why do you want to join our party?</label>
+                    <textarea id="comments" name="comments" rows="3" placeholder="Share your reasons for joining and what issues matter most to you..."></textarea>
+                </div>
+                
+                <div class="form-group consent-checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <span>I agree to the <a href="#" class="terms-link">terms and conditions</a> <span class="required">*</span></span>
+                    </label>
+                    <small class="error-message" id="consentError"></small>
+                </div>
+                
+                <div class="form-group consent-checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        <span>I would like to receive updates and newsletters</span>
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="back-btn" data-back="3"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="submit" class="submit-btn">Join Now <i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            
+            <div class="form-status">
+                <div id="loadingIndicator" class="loading-indicator hidden">
+                    <div class="spinner"></div> Processing your application...
+                </div>
+                <div id="successMessage" class="success-message hidden">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank you for joining!</h3>
+                    <p>We're excited to have you as part of our movement. You'll receive a confirmation email shortly.</p>
+                    <div class="social-share">
+                        <p>Help us grow by sharing:</p>
+                        <div class="social-buttons">
+                            <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorMessage" class="error-message hidden">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>There was a problem submitting your form. Please try again or contact us for assistance.</p>
+                    <button type="button" class="retry-btn"><i class="fas fa-redo"></i> Try Again</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="join.js"></script>
+</body>
+</html>

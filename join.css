@@ -1,0 +1,671 @@
+/* Global Styles and Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #e84118;
+    --primary-dark: #c23616;
+    --primary-light: #ff6348;
+    --secondary-color: #273c75;
+    --secondary-light: #4a69bd;
+    --text-color: #333;
+    --text-light: #666;
+    --border-color: #ddd;
+    --success-color: #44bd32;
+    --error-color: #e84118;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f5f6fa;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Form Header */
+.form-header {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    position: relative;
+}
+
+.form-header h2 {
+    font-size: 28px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.form-header .subtitle {
+    font-size: 16px;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+}
+
+/* Progress Bar */
+.progress-container {
+    padding: 20px 30px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.progress-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    color: var(--text-light);
+}
+
+.progress-step::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 3px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.progress-step.active {
+    color: var(--primary-color);
+}
+
+.progress-step.active::before {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.progress-step i {
+    position: absolute;
+    top: 7px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.progress-step span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Form Steps */
+.form-step {
+    padding: 30px;
+    display: block;
+}
+
+.form-step.hidden {
+    display: none;
+}
+
+.step-title {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.step-description {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+/* Form Controls */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.required {
+    color: var(--error-color);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    padding-left: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+}
+
+textarea {
+    padding-left: 15px;
+    height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(232, 65, 24, 0.2);
+}
+
+.helper-text {
+    display: block;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Checkbox & Radio Styling */
+.consent-checkbox {
+    margin: 20px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.terms-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* Contribution Options */
+.contribution-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.option-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.option-card:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(232, 65, 24, 0.05);
+}
+
+.option-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.option-card input:checked + .card-content {
+    color: var(--primary-color);
+}
+
+.option-card input:checked + .card-content i {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-content i {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f2f6;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.card-content span {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.card-content small {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+/* Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag-item {
+    position: relative;
+}
+
+.tag-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+.tag-item label {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #f1f2f6;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tag-item input:checked + label {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.back-btn, .next-btn, .submit-btn, .retry-btn {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    border: none;
+}
+
+.back-btn {
+    background-color: #f1f2f6;
+    color: var(--text-color);
+}
+
+.next-btn, .submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: #e2e5f1;
+}
+
+.next-btn:hover, .submit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.submit-btn {
+    padding: 12px 30px;
+}
+
+/* Summary Container */
+.summary-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-section {
+    margin-bottom: 15px;
+}
+
+.summary-section:last-child {
+    margin-bottom: 0;
+}
+
+.summary-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.summary-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.summary-label {
+    width: 40%;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.summary-value {
+    width: 60%;
+    color: var(--text-light);
+}
+
+/* Loading, Success, and Error States */
+.form-status {
+    margin-top: 20px;
+}
+
+.loading-indicator, .success-message, .error-message {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.success-message {
+    background-color: rgba(68, 189, 50, 0.1);
+    color: var(--success-color);
+}
+
+.success-message i, .error-message i {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.success-message h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.error-message {
+    background-color: rgba(232, 65, 24, 0.1);
+    color: var(--error-color);
+}
+
+.retry-btn {
+    margin: 15px auto 0;
+    background-color: var(--error-color);
+    color: white;
+}
+
+.retry-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Social Sharing */
+.social-share {
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+}
+
+.social-share p {
+    margin-bottom: 10px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.whatsapp {
+    background-color: #25d366;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .form-container {
+        margin: 20px;
+        border-radius: 8px;
+    }
+    
+    .form-header {
+        padding: 20px 15px;
+    }
+    
+    .form-header h2 {
+        font-size: 24px;
+    }
+    
+    .progress-container {
+        padding: 15px;
+    }
+    
+    .progress-step span {
+        display: none;
+    }
+    
+    .form-step {
+        padding: 20px;
+    }
+    
+    .step-title {
+        font-size: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contribution-options {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .summary-item {
+        flex-direction: column;
+    }
+    
+    .summary-label, .summary-value {
+        width: 100%;
+    }
+    
+    .summary-label {
+        margin-bottom: 3px;
+    }
+    
+    .submit-btn, .next-btn, .back-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-header h2 {
+        font-size: 22px;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .progress-step::before {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .progress-step i {
+        font-size: 12px;
+        top: 7px;
+    }
+    
+    .contribution-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .back-btn, .next-btn, .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .back-btn {
+        order: 2;
+    }
+    
+    .next-btn, .submit-btn {
+        order: 1;
+    }
+}
